@@ -16,4 +16,19 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.any('*', ({ view }) => view.render('yusuke'))
+
+/**
+
+Route.on('/').render('yusuke')
+
+Route.get('/yusuke', () => 'Hello Yusuke from Adonis framework')
+
+Route.get('/yusuke/:ci?', async({ params }) => {
+	if (!params.ci) {
+		return 'La cedula no existe!'
+	}else{
+		return 'La cedula es '+params.ci
+	}
+})
+**/
