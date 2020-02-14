@@ -4,6 +4,11 @@
 const Model = use('Model')
 
 class Quote extends Model {
+
+	user(){
+		return this.belongsTo('App/Models/User')
+	}
+
 }
 
 module.exports = Quote

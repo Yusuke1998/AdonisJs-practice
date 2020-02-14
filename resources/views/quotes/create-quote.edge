@@ -14,9 +14,12 @@
 action="{{route('store.quote')}}">
                     {{ csrfField() }}
                     <div class="form-group">
+                        <label for="title">Create Quote</label>
+                        <input type="text" name='title' id="body" class="form-control" id="title" placeholder="Write the title of quote">
+                    </div>
+                    <div class="form-group">
                         <label for="quote">Create Quote</label>
-                        <textarea type="text" rows="5"  name='body' 
-id="body" class="form-control" id="quote" placeholder="Write an 
+                        <textarea type="text" rows="5"  name='body' id="body" class="form-control" id="quote" placeholder="Write an 
 inspirational quote"></textarea>
                     </div>
 

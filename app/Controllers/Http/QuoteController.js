@@ -4,7 +4,12 @@ const Quote = use('App/Models/Quote')
 class QuoteController {
 
   async index ({ view }) {
-    const quote = await Quote.all()
+    const Quote = use ('App/Models/Quote')
+    const quote = await Quote
+    .query()
+    .with('user')
+    .fetch()
+
     return view.render('index', {
       quotes: quote.toJSON()
     })
@@ -17,7 +22,7 @@ class QuoteController {
   async store ({ request,auth,session, response }) {
     const quote = await Quote.create({
       user_id: auth.user.id,
-      username: auth.user.username,
+      title: request.input('title'),
       body: request.input('body')
     })
     session.flash({ 'successmessage': 'La nota fue creada!'})
@@ -26,6 +31,7 @@ class QuoteController {
 
   async show ({ params, view }) {
     const quote = await Quote.find(params.id)
+    await quote.load('user')
     return view.render('quotes.view-quote', {
       quote: quote.toJSON()
     })
@@ -40,6 +46,7 @@ class QuoteController {
 
   async update ({ params, request, response, session }) {
     const quote = await Quote.find(params.id)
+    quote.title = request.input('title')
     quote.body = request.input('body')
     await quote.save()
     session.flash({'successmessage': 'No actualizada exitosamente!'})
