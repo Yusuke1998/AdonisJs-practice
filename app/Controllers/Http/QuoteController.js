@@ -25,7 +25,7 @@ class QuoteController {
       title: request.input('title'),
       body: request.input('body')
     })
-    session.flash({ 'successmessage': 'La nota fue creada!'})
+    session.flash({ 'successmessage': 'La nota fue creada exitosamente!'})
     return response.redirect('/')
   }
 
@@ -49,7 +49,7 @@ class QuoteController {
     quote.title = request.input('title')
     quote.body = request.input('body')
     await quote.save()
-    session.flash({'successmessage': 'No actualizada exitosamente!'})
+    session.flash({'successmessage': 'La nota fue actualizada exitosamente!'})
     return response.redirect('/')
   }
 

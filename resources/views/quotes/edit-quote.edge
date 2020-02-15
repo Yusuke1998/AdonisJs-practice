@@ -5,7 +5,7 @@
         <div class="col-md-6 shadow bg-white rounded p-3 
 offset-md-3">
             <div class="float-right">
-                <a href="/" class="btn btn-outline-dark ">back</a>
+                <a href="/" class="btn btn-outline-dark ">atras</a>
             </div>
             <br>
             <div class="clear-fix"></div>
@@ -14,15 +14,15 @@ offset-md-3">
                 {{ csrfField() }}
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" name='title' id="body" class="form-control" id="title" value="{{quote.title}}" placeholder="Write the title of quote">
+                        <label for="title">Titulo</label>
+                        <input type="text" name='title' id="body" class="form-control" id="title" value="{{quote.title}}" placeholder="Escribe el titulo de la nota">
                     </div>
-                    <label for="quote">Quote</label>
-                    <textarea type="text" rows="5"  name='body' id="body" class="form-control" id="quote" placeholder="write the inspirational quote">{{quote.body}}</textarea>
+                    <label for="quote">Contenido</label>
+                    <textarea type="text" rows="5"  name='body' id="body" class="form-control" id="quote" placeholder="Escribe el contenido de la nota">{{quote.body}}</textarea>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn 
-btn-primary">Update</button>
+btn-primary">Actualizar</button>
                 </div>
             </form>
         </div>
