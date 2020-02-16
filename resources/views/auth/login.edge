@@ -1,36 +1,62 @@
 @layout('layouts/app')
 @section('content')
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 shadow bg-white mt-5 rounded 
-offset-md-4">
-        <form method="POST" action="{{route('login.store')}}">
+  <div 
+    class="container">
+    <div 
+      class="row">
+      <div 
+        class="col-md-4 shadow bg-white mt-5 rounded offset-md-4">
+        <form 
+          method="POST" 
+          action="{{route('login.store')}}">
           {{ csrfField() }}
-            <div>
+            <div class="my-4 text-center">
               @if(flashMessage('successmessage'))
-                <span class="alert alert-success p-1">{{ 
-flashMessage('successmessage') }}</span>
+                <span 
+                  class="alert alert-success p-1">{{ flashMessage('successmessage') }}</span>
               @endif
             </div>
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" 
-name="email" value="{{old('email','')}}"  placeholder="Enter email">
-              {{ elIf('<span class=text-danger>$self</span>', 
-getErrorFor('email'), hasErrorFor('email')) }}
+            <div 
+              class="form-group">
+              <label 
+                for="email">Correo Electronico</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name="email" 
+                value="{{old('email','')}}" 
+                placeholder="Ingresa tu Correo Electronico">
+              @if(getErrorFor('email') || hasErrorFor('email'))
+                <span 
+                  class=text-danger>
+                  {{getErrorFor('email')}}
+                </span>
+              @endif
             </div>
-            <div class="form-group">
-              <label for="pasword">Password</label>
-              <input type="password" class="form-control" 
-id="password" name="password" value="{{old('password','')}}" 
-placeholder="Password">
-              {{ elIf('<span class=text-danger>$self</span>', 
-getErrorFor('password'), hasErrorFor('password')) }}
+            <div 
+              class="form-group">
+              <label 
+                for="pasword">Contraseña</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                name="password" 
+                value="{{old('password','')}}" 
+                placeholder="Ingresa tu Contraseña">
+              @if(getErrorFor('password') || hasErrorFor('password'))
+                <span 
+                  class=text-danger>
+                  {{getErrorFor('password')}}
+                </span>
+              @endif
             </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn 
-btn-primary">Submit</button>
+            <div 
+              class="text-center">
+              <button 
+                type="submit" 
+                class="btn btn-primary">Ingresar</button>
             </div>
         </form>
       </div>
